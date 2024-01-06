@@ -7,7 +7,7 @@
         <!-- 右侧主体 -->
         <!-- 头部 -->
         <el-header height="60px">
-
+g
           <Breadcrumb />
           <el-button class="exit" type="primary" @click="goBack()">退出</el-button>
         </el-header>
@@ -41,9 +41,5 @@ export default {
 </script>
 
 <style>
-  .logo2{
-    position: relative;
-    left: 400px;
-    height: 78px;
-  }
+
 </style>
