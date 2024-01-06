@@ -9,7 +9,7 @@
     </el-carousel>
 
     <!-- 卡片 -->
-    <el-row :gutter="20" style="margin-top: 20px">
+    <el-row :gutter="20" style="margin-top: 60px">
       <el-col :xs="24" :sm="12" :md="6" v-for="(o, index) in cardLists" :key="index">
         <el-card :body-style="{ padding: '0px' }">
           <div class="image-container">
@@ -80,7 +80,7 @@ export default {
   position: fixed;
   left: 700px;
   height: 85px;
-  width: 235px;
+  width: 225px;
   top: -5px;
 
 }
