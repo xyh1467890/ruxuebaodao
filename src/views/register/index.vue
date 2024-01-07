@@ -1,40 +1,44 @@
 <template>
   <div class="login-wrapper">
-  <div class="logo3"><img src="@/assets/img/logo3.png">
-  <sqan class="xtmc">入学报到系统</sqan>
-  </div>
+    <div class="logo3">
+      <img src="@/assets/img/logo3.png">
+      <span class="xtmc">入学报到系统</span>
+    </div>
     <el-card class="outer-card">
-      <img src="@/assets/img/tu1.jpg"class="tu1" >
+      <img src="@/assets/img/tu1.jpg" class="tu1">
       <a href="http://www.ycu.edu.cn/" target="_blank">
-        <img src="@/assets/img/logo2.png" class="tu2" ></a>>
+        <img src="@/assets/img/logo2.png" class="tu2"></a>
 
       <div class="login">
         <el-card class="login-card">
-          <p class="login-title">用户登录</p>
+          <p class="login-title">用户注册</p>
           <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-position="top">
             <el-form-item label="用户名" prop="name">
               <el-input v-model="ruleForm.name" placeholder="请输入用户名"></el-input>
+            </el-form-item>
+
+            <el-form-item label="邮箱" prop="email">
+              <el-input v-model="ruleForm.email" placeholder="请输入邮箱"></el-input>
             </el-form-item>
 
             <el-form-item label="密码" prop="password">
               <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码"></el-input>
             </el-form-item>
 
-            <div class="options">
-              <el-checkbox v-model="ruleForm.rememberMe">记住密码</el-checkbox>
-              <el-button class="reg" type="text" @click="gotoRegister">注册</el-button>
-            </div>
+            <el-form-item label="学号/教职工号" prop="idNumber">
+              <el-input v-model="ruleForm.idNumber" placeholder="请输入学号或教职工号"></el-input>
+            </el-form-item>
 
             <el-form-item class="form-actions">
-              <el-button type="primary" class="btn1" @click="submitForm('ruleForm')">登录</el-button>
+              <el-button type="primary" class="btn1" @click="register">注册</el-button>
             </el-form-item>
           </el-form>
         </el-card>
       </div>
     </el-card>
-    <div id="footerID" class="footer" >
-	<p>版权所有© Copyright 2002-2102 运城学院　　中国山西·运城盐湖区复旦大街1155号 数学与信息技术学院2003班&nbsp;&nbsp;&nbsp;版本V-4.0.0</p>
-</div>
+    <div id="footerID" class="footer">
+      <p>版权所有© 运城学院　数学与信息技术学院2003班 版本V-4.0.0</p>
+    </div>
   </div>
 </template>
 
@@ -42,49 +46,52 @@
 import axios from '@/api'
 
 export default {
-  name: 'LoginForm',
+  name: 'RegisterForm',
   data() {
     return {
       ruleForm: {
         name: '',
+        email: '',
         password: '',
-        rememberMe: false
+        idNumber: ''
       },
       rules: {
         name: [
           { required: true, message: '请输入用户名', trigger: 'blur' },
           { min: 3, max: 18, message: '用户名长度在 3 到 18 个字符之间', trigger: 'blur' }
         ],
+        email: [
+          { required: true, message: '请输入邮箱', trigger: 'blur' },
+          { type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] }
+        ],
         password: [
           { required: true, message: '请输入密码', trigger: 'blur' },
           { min: 6, max: 18, message: '密码长度在 6 到 18 个字符之间', trigger: 'blur' }
+        ],
+        idNumber: [
+          { required: true, message: '请输入学号或教职工号', trigger: 'blur' }
         ],
       }
     }
   },
   methods: {
-    submitForm(formName) {
-      this.$refs[formName].validate(async (valid) => {
+    register() {
+      this.$refs['ruleForm'].validate(async (valid) => {
         if (valid) {
+          // 注册逻辑处理
           try {
-            const response = await axios.post('get_login', {
-              user: this.ruleForm.name,
-              password: this.ruleForm.password,
-              rememberMe: this.ruleForm.rememberMe
-            });
-            // ... 登录逻辑处理
+            const response = await axios.post('register', this.ruleForm);
+            // 处理响应
           } catch (error) {
-            // ... 错误处理
+            // 错误处理
           }
         }
       });
-    },
-    gotoRegister() {
-      this.$router.push('/register'); // 导航到注册页面
     }
   }
 }
 </script>
+
 
 <style scoped>
 .tu2{

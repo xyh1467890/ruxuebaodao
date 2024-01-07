@@ -17,7 +17,7 @@
         </el-submenu>
 
         <!-- 没有子级的菜单项 -->
-        <el-menu-item v-else :index="item.url">
+        <el-menu-item v-else :index="item.url" @click="handleMenuItemClick(item)">
           <i :class="item.icon"></i>
           <span slot="title">{{ item.name }}</span>
         </el-menu-item>
@@ -42,8 +42,20 @@ export default {
           ]
         },
         { name: '缴费系统', url: '/money', icon: 'el-icon-money' },
-        { name: '宿舍管理', url: '/hotel', icon: 'el-icon-house' }
+        { name: '宿舍管理', url: '/hotel', icon: 'el-icon-house' },
+        { name: '关于我们',
+          link: 'http://www.ycu.edu.cn/',
+          icon: 'el-icon-s-promotion',
+          isExternalLink: true} // 添加一个标志以指示这是外部链接
       ]
+    }
+  },
+  methods:{
+    handleMenuItemClick(item){
+      if (item.isExternalLink){
+        window.open(item.link,'_blank');
+        //检查菜单项是否是外部链接（通过 isExternalLink 属性）。如果是外部链接，它将使用 window.open() 函数在新标签页中打开该链接
+      }
     }
   }
 }

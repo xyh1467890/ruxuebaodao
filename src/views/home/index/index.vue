@@ -73,12 +73,12 @@ export default {
 }
 .button{
   position: relative;
-  left: 55px;
+  left: 66px;
   font-size: 15px;
 }
 .logo2{
   position: fixed;
-  left: 700px;
+  left: 650px;
   height: 85px;
   width: 225px;
   top: -5px;
