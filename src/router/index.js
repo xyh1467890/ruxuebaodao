@@ -14,6 +14,11 @@ const routes = [
     component: () => import('../views/login/index.vue')
   },
   {
+    path: '/register',  //登录页
+    name: 'register',
+    component: () => import('../views/register/index.vue')
+  },
+  {
     path: '/home',  //布局页
     name: 'home',
     meta:{title:'首页'},

@@ -4,7 +4,7 @@
   <sqan class="xtmc">入学报到系统</sqan>
   </div>
     <el-card class="outer-card">
-      <img src="@/assets/img/tu1.jpg"class="tu1" >
+      <div class="image-frame"><img src="@/assets/img/tu1.jpg"class="tu1" ></div>
       <a href="http://www.ycu.edu.cn/" target="_blank">
         <img src="@/assets/img/logo2.png" class="tu2" ></a>>
 
@@ -113,12 +113,25 @@ export default {
   position: absolute;
   top: -70px;
 }
-.tu1{
+.image-frame {
   position: absolute;
-  left: 20px;
-  top: 147px;
+  left: 18px;
+  top: 130px;
   width: 600px;
+  height: 370px;
+  border: 3px solid rgb(203, 228, 246); /* 添加一个10px宽的边框，并使用您选择的颜色 */
+  //box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* 添加一个轻微的阴影效果 */
+  overflow: hidden; /* 隐藏超出边框的图像部分 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.tu1 {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .login-wrapper {
   position: absolute;
   left: 150px;

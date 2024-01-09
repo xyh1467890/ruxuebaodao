@@ -8,7 +8,7 @@
       <img src="@/assets/img/tu1.jpg" class="tu1">
       <a href="http://www.ycu.edu.cn/" target="_blank">
         <img src="@/assets/img/logo2.png" class="tu2"></a>
-
+      <img src="@/assets/img/tu2.jpg" class="tu2-2">
       <div class="login">
         <el-card class="login-card">
           <p class="login-title">用户注册</p>
@@ -94,6 +94,13 @@ export default {
 
 
 <style scoped>
+.tu2-2{
+  position: absolute;
+  top: 500px;
+  left: 20px;
+  height: 150px;
+  width: 600px;
+}
 .tu2{
   position: absolute;
   top: 25px;
@@ -102,7 +109,7 @@ export default {
 }
 .footer{
   position: relative;
-  left: 180px;
+  left: 370px;
   top: 20px;
   color: #8099AF;
   font-size: 12px;

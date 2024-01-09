@@ -17,7 +17,7 @@
           </div>
           <div style="padding: 14px;">
             <div class="bottom clearfix">
-              <el-button type="primary" round class="button" @click="navigateTo(o.route)">
+              <el-button type="primary" plain class="button" @click="navigateTo(o.route)">
                 {{ cardButtonTitles[index] }}</el-button>
             </div>
           </div>
@@ -38,12 +38,12 @@ export default {
         require("@/assets/img/banner3.png"),
       ],
       cardLists:[
-        {title:'',img:require("@/assets/img/11.png"),route:'./wms/list'},
-        {title:'',img:require("@/assets/img/12.png"),route:'./stats'},
-        {title:'',img:require("@/assets/img/13.png"),route:'./money'},
-        {title:'',img:require("@/assets/img/14.png"),route:'./hotel'}
+        {title:'',img:require("@/assets/img/11.jpg"),route:'./wms/list'},
+        {title:'',img:require("@/assets/img/12.jpg"),route:'./stats'},
+        {title:'',img:require("@/assets/img/13.jpg"),route:'./money'},
+        {title:'',img:require("@/assets/img/14.jpg"),route:'./hotel'}
       ],
-      cardButtonTitles: ["入学报道", "信息咨询", "缴费系统", "住宿管理"]
+      cardButtonTitles: ["入学报道", "信息咨询", "计划财政部", "住宿管理"]
     }
   },
   methods:{
@@ -73,7 +73,7 @@ export default {
 }
 .button{
   position: relative;
-  left: 66px;
+  left: 70px;
   font-size: 15px;
 }
 .logo2{
